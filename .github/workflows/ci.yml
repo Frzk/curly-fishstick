@@ -31,5 +31,5 @@ jobs:
 
       - name: 🔎 Run tests
         run: |
-          test/unit
+          test/test
 ...

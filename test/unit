@@ -1,9 +1,18 @@
 #!/usr/bin/env bash
 
-buildpack_dir="${BUILDPACK_DIR:-"$( pwd )"}"
+# Tests
+test_equality() {
+    assertEquals 1 1
+}
 
-# Load tests
-source "${buildpack_dir}/test/tests"
+test_party_like_it_is_1999() {
+    year="$( date "+%Y" )"
 
-# Load shUnit2 (runs the tests)
-source "${buildpack_dir}/test/shunit2"
+    assertEquals "It's not 1999 :-(" "1999" "${year}"
+}
+
+
+# Add the following functions to the test suite:
+
+suite_addTest test_equality
+suite_addTest test_party_like_it_is_1999
