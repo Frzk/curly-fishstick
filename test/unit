@@ -2,17 +2,8 @@
 
 buildpack_dir="${BUILDPACK_DIR:-"$( pwd )"}"
 
+# Load tests
+source "${buildpack_dir}/test/tests"
 
-testEquality() {
-    assertEquals 1 1
-}
-
-testPartyLikeItIs1999() {
-    year="$( date "+%Y" )"
-
-    assertEquals "It's not 1999 :-(" "1999" "${year}"
-}
-
-
-# Load shUnit2
+# Load shUnit2 (runs the tests)
 source "${buildpack_dir}/test/shunit2"
